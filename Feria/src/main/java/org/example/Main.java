@@ -1,17 +1,61 @@
 package org.example;
 
-//TIP To <b>Run</b> code, press <shortcut actionId="Run"/> or
-// click the <icon src="AllIcons.Actions.Execute"/> icon in the gutter.
-public class Main {
-    static void main() {
-        //TIP Press <shortcut actionId="ShowIntentionActions"/> with your caret at the highlighted text
-        // to see how IntelliJ IDEA suggests fixing it.
-        IO.println(String.format("Hello and welcome!"));
+import java.util.Scanner;
 
-        for (int i = 1; i <= 5; i++) {
-            //TIP Press <shortcut actionId="Debug"/> to start debugging your code. We have set one <icon src="AllIcons.Debugger.Db_set_breakpoint"/> breakpoint
-            // for you, but you can always add more by pressing <shortcut actionId="ToggleLineBreakpoint"/>.
-            IO.println("i = " + i);
+public class Main {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+
+        System.out.println("--- Datos Generales de la Feria ---");
+        System.out.print("Nombre de la Feria: ");
+        String nombreFeria = scanner.nextLine();
+        System.out.print("Parque / Sede: ");
+        String parqueSede = scanner.nextLine();
+        System.out.print("Dirección: ");
+        String direccion = scanner.nextLine();
+        System.out.print("Localidad: ");
+        String localidad = scanner.nextLine();
+
+        System.out.println("\n--- Datos del Organizador ---");
+        System.out.print("Nombre del Organizador: ");
+        String nombreOrganizador = scanner.nextLine();
+        System.out.print("Contacto: ");
+        String contacto = scanner.nextLine();
+        Organizador organizador = new Organizador(nombreFeria, parqueSede, direccion, localidad, nombreOrganizador, contacto);
+
+        System.out.println("\n--- Datos del Emprendedor ---");
+        System.out.print("Nombre del Emprendedor: ");
+        String nombreEmprendedor = scanner.nextLine();
+        System.out.print("Nombre del Negocio: ");
+        String nombreNegocio = scanner.nextLine();
+        Emprendedor emprendedor = new Emprendedor(nombreFeria, parqueSede, direccion, localidad, nombreEmprendedor, nombreNegocio);
+
+        System.out.println("\n--- Datos del Catálogo ---");
+        System.out.print("Producto: ");
+        String producto = scanner.nextLine();
+        System.out.print("Precio: ");
+        double precio = Double.parseDouble(scanner.nextLine()); // Se usa Double.parseDouble para prevenir errores de búfer
+        Catalogo catalogo = new Catalogo(nombreFeria, parqueSede, direccion, localidad, producto, precio);
+
+        System.out.println("\n--- Datos del Cronograma ---");
+        System.out.print("Fecha de Inicio: ");
+        String fechaInicio = scanner.nextLine();
+        System.out.print("Fecha de Fin: ");
+        String fechaFin = scanner.nextLine();
+        Cronograma cronograma = new Cronograma(nombreFeria, parqueSede, direccion, localidad, fechaInicio, fechaFin);
+
+        Feria[] listaFeria = new Feria[4];
+        listaFeria[0] = organizador;
+        listaFeria[1] = emprendedor;
+        listaFeria[2] = catalogo;
+        listaFeria[3] = cronograma;
+
+        System.out.println("   REPORTES DE LA FERIA (SALIDA POLIMÓRFICA)  ");
+
+        for (Feria elemento : listaFeria) {
+            elemento.mostrarDetalle();
         }
+
+        scanner.close();
     }
 }
