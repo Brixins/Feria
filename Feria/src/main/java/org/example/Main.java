@@ -21,14 +21,14 @@ public class Main {
         String nombreOrganizador = scanner.nextLine();
         System.out.print("Contacto: ");
         String contacto = scanner.nextLine();
-        Organizador organizador = new Organizador(nombreFeria, parqueSede, direccion, localidad, nombreOrganizador, contacto);
+        Organizador organizador = new Organizador(nombreFeria, parqueSede, direccion, localidad, NombreOrg, Contacto);
 
         System.out.println("\n--- Datos del Emprendedor ---");
         System.out.print("Nombre del Emprendedor: ");
         String nombreEmprendedor = scanner.nextLine();
         System.out.print("Nombre del Negocio: ");
         String nombreNegocio = scanner.nextLine();
-        Emprendedor emprendedor = new Emprendedor(nombreFeria, parqueSede, direccion, localidad, nombreEmprendedor, nombreNegocio);
+        Emprendedor emprendedor = new Emprendedor(nombreFeria, parqueSede, direccion, localidad, NomEmpr, NombreEmprendi);
 
         System.out.println("\n--- Datos del Catálogo ---");
         System.out.print("Producto: ");
