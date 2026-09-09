@@ -6,7 +6,7 @@ public class Main {
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
 
-        System.out.println("--- Datos Generales de la Feria ---");
+        System.out.println("PROYECTO: LOCALIDAD EMPRENDE");
         System.out.print("Nombre de la Feria: ");
         String nombreFeria = scanner.nextLine();
         System.out.print("Parque / Sede: ");
@@ -50,7 +50,7 @@ public class Main {
         listaFeria[2] = catalogo;
         listaFeria[3] = cronograma;
 
-        System.out.println("   REPORTES DE LA FERIA (SALIDA POLIMÓRFICA)  ");
+        System.out.println("IMPRESION DATOS REGISTRADOS DE LA FERIA (POLIMORFISMO)");
 
         for (Feria elemento : listaFeria) {
             elemento.mostrarDetalle();
